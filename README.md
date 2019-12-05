@@ -12,6 +12,4 @@ If you want to use a different dataset on the website, some parameters should be
 ## Model
 This folder contains STGCN model.  
 The original code is from https://github.com/FelixOpolka/STGCN-PyTorch.  
-We modify part of the code using different data.
-
-
+We modified parts of the code and added a different function to capture the spatial features.
