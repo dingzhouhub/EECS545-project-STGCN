@@ -6,7 +6,7 @@ Anonymous before reviewing
 ## DataCollection
 This is a file to generate matrices and plots with the data downloaded from the website.  
 Data souce is http://pems.dot.ca.gov/.
-The data collected is about the traffic speed and flow from Nov. 1 to Nov.30 in District 8. And to reduce the computation cost, we choose 200 stations as sample in most denest area.  
+The data collected is about the traffic speed and flow from Nov. 1 to Nov.30 in District 8. And to reduce the computation cost, we choose 200 stations as samples in most denest area.  
 If you want to use a different dataset on the website, some parameters should be modified.
 
 ## Model
