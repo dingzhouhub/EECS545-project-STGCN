@@ -16,8 +16,8 @@ We modified parts of the code and added a different function to capture the spat
 
 ## Analysis
 We have 2 STGCN models and 2 baseline models. 
-Model name: 
-1st Order (equal theta) 
-Single Parameter (theta0=0)
-Arima
-Grey Model
+Model name:  
+1st Order (equal theta)  
+Single Parameter (theta0=0)  
+Arima  
+Grey Model  
