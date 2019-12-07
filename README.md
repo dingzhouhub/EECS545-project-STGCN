@@ -15,8 +15,8 @@ The original code is from https://github.com/FelixOpolka/STGCN-PyTorch.
 We modified parts of the code and added a different function to capture the spatial features.
 
 ## Analysis
-We have 2 STGCN models and 2 baseline models. 
-Model name:  
+We have 2 STGCN models and 2 baseline models.  
+Models name:  
 1st Order (equal theta)  
 Single Parameter (theta0=0)  
 Arima  
