@@ -63,12 +63,10 @@ if __name__ == '__main__':
 
     A, X, means, stds = load_metr_la_data()
 
-    split_line1 = int(X.shape[2] * 0.6)
-    split_line2 = int(X.shape[2] * 0.8)
+    split_line = int(X.shape[2] * 6/7)
 
-    train_original_data = X[:, :, :split_line1]
-    val_original_data = X[:, :, split_line1:split_line2]
-    test_original_data = X[:, :, split_line2:]
+    train_original_data = X[:, :, :split_line]
+    val_original_data = X[:, :, split_line:]
 
     training_input, training_target = generate_dataset(train_original_data,
                                                        num_timesteps_input=num_timesteps_input,
@@ -76,9 +74,6 @@ if __name__ == '__main__':
     val_input, val_target = generate_dataset(val_original_data,
                                              num_timesteps_input=num_timesteps_input,
                                              num_timesteps_output=num_timesteps_output)
-    test_input, test_target = generate_dataset(test_original_data,
-                                               num_timesteps_input=num_timesteps_input,
-                                               num_timesteps_output=num_timesteps_output)
 
     A_wave = get_normalized_adj(A)
     A_wave = torch.from_numpy(A_wave)
@@ -111,12 +106,14 @@ if __name__ == '__main__':
             val_loss = loss_criterion(out, val_target).to(device="cpu")
             validation_losses.append(np.asscalar(val_loss.detach().numpy()))
 
-            out_unnormalized = out.detach().cpu().numpy()*stds[0]+means[0]
-            target_unnormalized = val_target.detach().cpu().numpy()*stds[0]+means[0]
+            out_unnormalized = out.detach().cpu().numpy()*stds[1]+means[1]
+            target_unnormalized = val_target.detach().cpu().numpy()*stds[1]+means[1]
             mae = np.mean(np.absolute(out_unnormalized - target_unnormalized))
             validation_maes.append(mae)
 
-            np.savetxt("prediction.csv", out_unnormalized[:,0,0], delimiter=" ")
+            np.savetxt("prediction5.csv", out_unnormalized[:,0,0], delimiter=" ")
+            np.savetxt("prediction10.csv", out_unnormalized[:,0,1], delimiter=" ")
+            np.savetxt("prediction15.csv", out_unnormalized[:,0,2], delimiter=" ")
 
             out = None
             val_input = val_input.to(device="cpu")
