@@ -13,3 +13,11 @@ If you want to use a different dataset on the website, some parameters should be
 This folder contains STGCN model.  
 The original code is from https://github.com/FelixOpolka/STGCN-PyTorch.  
 We modified parts of the code and added a different function to capture the spatial features.
+
+## Analysis
+We have 2 STGCN models and 2 baseline models. 
+Model name: 
+1st Order (equal theta) 
+Single Parameter (theta0=0)
+Arima
+Grey Model
