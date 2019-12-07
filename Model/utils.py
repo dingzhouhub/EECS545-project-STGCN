@@ -35,8 +35,16 @@ def load_metr_la_data():
 #                          diag.reshape((1, -1)))
 #     return A_wave
 
-
-
+def get_normalized_adj(A):
+    """
+    Returns the degree normalized adjacency matrix.
+    """
+    D = np.array(np.sum(A, axis=1)).reshape((-1,))
+    D[D <= 10e-5] = 10e-5    # Prevent infs
+    diag = np.reciprocal(np.sqrt(D))
+    A_wave = np.multiply(np.multiply(diag.reshape((-1, 1)), A),
+                         diag.reshape((1, -1)))
+    return A_wave
 
 def generate_dataset(X, num_timesteps_input, num_timesteps_output):
     """
