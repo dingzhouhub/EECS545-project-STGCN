@@ -106,8 +106,8 @@ if __name__ == '__main__':
             val_loss = loss_criterion(out, val_target).to(device="cpu")
             validation_losses.append(np.asscalar(val_loss.detach().numpy()))
 
-            out_unnormalized = out.detach().cpu().numpy()*stds[1]+means[1]
-            target_unnormalized = val_target.detach().cpu().numpy()*stds[1]+means[1]
+            out_unnormalized = out.detach().cpu().numpy()*stds[1]+means[1]           #choose between 0 and 1, 0:speed 1:flow
+            target_unnormalized = val_target.detach().cpu().numpy()*stds[1]+means[1] #choose between 0 and 1, 0:speed 1:flow
             mae = np.mean(np.absolute(out_unnormalized - target_unnormalized))
             validation_maes.append(mae)
 
