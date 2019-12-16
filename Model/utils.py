@@ -71,7 +71,7 @@ def generate_dataset(X, num_timesteps_input, num_timesteps_output):
         features.append(
             X[:, :, i: i + num_timesteps_input].transpose(
                 (0, 2, 1)))
-        target.append(X[:, 0, i + num_timesteps_input: j])
+        target.append(X[:, 0, i + num_timesteps_input: j])    #choose between 0 and 1, 0:speed 1:flow
 
     return torch.from_numpy(np.array(features)), \
            torch.from_numpy(np.array(target))
